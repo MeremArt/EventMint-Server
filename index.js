@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "*", // Allow requests from http://localhost:5173
+    origin: "https://event-mint-cllient.vercel.app", // Specify the origin of your client application
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   })
 );
