@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+
+const axios = require("axios");
 const connectDB = require("./db/connect");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
@@ -29,6 +31,24 @@ app.use("/api/v1/ev", userRouter);
 // Error Handling Middleware
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
+
+const serverUrl = `https://merem-r2d2.onrender.com`;
+app.get("*", async (req, res) => {
+  res.send("chill");
+});
+
+const checkServerHealth = () => {
+  axios
+    .get(serverUrl)
+    .then((response) => {
+      console.log(`Server is healthy`, response.data);
+    })
+    .catch((error) => {
+      console.error(`Error checking server health:`, error.message);
+    });
+};
+
+checkServerHealth();
 
 // Graceful shutdown
 process.on("SIGINT", () => {
