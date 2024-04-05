@@ -20,7 +20,7 @@ app.use("/api/v1/ev/upload", express.static(__dirname + "/controller/uploads"));
 // CORS configuration
 app.use(
   cors({
-    origin: "https://event-mint-cllient.vercel.app", // Allow requests from http://localhost:5173
+    origin: "*", // Allow requests from http://localhost:5173
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   })
 );
