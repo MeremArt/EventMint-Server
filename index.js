@@ -20,7 +20,7 @@ app.use("/api/v1/ev/upload", express.static(__dirname + "/controller/uploads"));
 // CORS configuration
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allow requests from http://localhost:5173
+    origin: "https://event-mint-cllient.vercel.app", // Allow requests from http://localhost:5173
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   })
 );
@@ -32,7 +32,7 @@ app.use("/api/v1/ev", userRouter);
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
 
-const serverUrl = `https://merem-r2d2.onrender.com`;
+const serverUrl = `https://eventmint-server.onrender.com`;
 app.get("*", async (req, res) => {
   res.send("chill");
 });
