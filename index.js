@@ -14,16 +14,17 @@ const errorMiddleware = require("./middleware/error-handler.js");
 app.use(express.json());
 app.use(cookieParser());
 
-// Serve static files from the correct path
-app.use("/api/v1/ev/upload", express.static(__dirname + "/controller/uploads"));
-
-// CORS configuration
 app.use(
   cors({
     origin: "*", // Allow requests from http://localhost:5173
     credentials: true, // Enable credentials (cookies, authorization headers, etc.)
   })
 );
+
+// Serve static files from the correct path
+app.use("/api/v1/ev/upload", express.static(__dirname + "/controller/uploads"));
+
+// CORS configuration
 
 // Define routes
 app.use("/api/v1/ev", userRouter);
