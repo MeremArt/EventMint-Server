@@ -33,7 +33,7 @@ app.use("/api/v1/ev", userRouter);
 app.use(notFoundMiddleware);
 app.use(errorMiddleware);
 
-const serverUrl = `https://eventmint-server.onrender.com`;
+const serverUrl = `http://localhost:5173`;
 app.get("*", async (req, res) => {
   res.send("chill");
 });
